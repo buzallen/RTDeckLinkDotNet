@@ -40,7 +40,6 @@ namespace DLKeyFillLibFake
 
         private Stopwatch watch = new Stopwatch();
         private int frameCounter = 0;
-        private bool hideKey;
 
         public DLDualOutputFake(int width, int height, int frameLength)
         {
@@ -117,35 +116,10 @@ namespace DLKeyFillLibFake
 
                 clearScreenRequest = false;
             }
-            else if (DrawFrameGFXCallback != null) {
-                DrawFrameGFXCallback(_surfaceGFX_A, _surfaceGFX_B);
+            else
+            {
+                DrawFrameGFXCallback?.Invoke(_surfaceGFX_A, _surfaceGFX_B);
             }
-
-            //BitmapData bmData_A = _surfaceBitmap_A.LockBits(new Rectangle(0, 0, _surfaceBitmap_A.Width, _surfaceBitmap_A.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppPArgb);
-            //System.IntPtr Scan0_A = bmData_A.Scan0;
-
-            //BitmapData bmData_B = _surfaceBitmap_B.LockBits(new Rectangle(0, 0, _surfaceBitmap_B.Width, _surfaceBitmap_B.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppPArgb);
-            //System.IntPtr Scan0_B = bmData_B.Scan0;
-
-            //unsafe {
-            //    byte* src = (byte*)(void*)Scan0_A;
-            //    byte* kb = (byte*)(void*)Scan0_B;
-            //    for (int y = 0; y < DisplayHeight; ++y) {
-            //        for (int x = 0; x < DisplayWidth; ++x) {
-
-            //            kb[0] = src[3];
-            //            kb[1] = src[3];
-            //            kb[2] = src[3];
-            //            kb[3] = 255;
-
-            //            kb += 4;
-            //            src += 4;
-            //        }
-            //    }
-            //}
-
-            //_surfaceBitmap.UnlockBits(bmDataF);
-            //_keyBitmap.UnlockBits(bmDataK);
 
             dlOutputWindowA.FrameBitmap = _surfaceBitmap_A;
             dlOutputWindowB.FrameBitmap = _surfaceBitmap_B;

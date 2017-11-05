@@ -101,7 +101,6 @@ namespace DLKeyFillLibFake
 
         }
 
-
         void timer_Tick(object sender, EventArgs e)
         {
             if (clearScreenRequest == true) {
@@ -115,30 +114,11 @@ namespace DLKeyFillLibFake
             BitmapData bmDataF = _surfaceBitmap.LockBits(new Rectangle(0, 0, _surfaceBitmap.Width, _surfaceBitmap.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppPArgb);
             System.IntPtr Scan0F = bmDataF.Scan0;
 
-
-            //unsafe {
-            //    byte* src = (byte*)(void*)Scan0F;
-            //    for (int y = 0; y < DisplayHeight; ++y) {
-            //        for (int x = 0; x < DisplayWidth; ++x) {
-
-            //            kb[0] = src[3];
-            //            kb[1] = src[3];
-            //            kb[2] = src[3];
-            //            kb[3] = 255;
-
-            //            kb += 4;
-            //            src += 4;
-            //        }
-            //    }
-            //}
-
             _surfaceBitmap.UnlockBits(bmDataF);
-
 
             dlFill.FrameBitmap = _surfaceBitmap;
 
             frameCounter++;
-
         }
 
         public double GetActualPerFrameLength()

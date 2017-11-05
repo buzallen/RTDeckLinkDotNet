@@ -16,12 +16,6 @@ namespace DLIDefinitions
         }
     }
 
-    public enum KFDrawMode
-    {
-        Graphics,
-        Bitmap
-    }
-
     public interface IDLKeyFillOutput
     {
         int DisplayWidth { get; set; }

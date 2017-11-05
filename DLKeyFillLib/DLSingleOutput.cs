@@ -40,12 +40,6 @@ namespace DLKeyFillLib
 
         public bool KeyFromBottomHalf { get; set; }
 
-        public DLSingleOutput()
-        {
-            PreRollFrames = 20;
-            KeyFromBottomHalf = true;
-        }
-
         public void ShowPreviewWindow(bool show)
         {
             if (show)

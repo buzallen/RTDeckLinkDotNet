@@ -43,11 +43,7 @@ namespace DLKeyFillLib
         private PreviewWindow previewWindow_B = null;
 
         private bool previewOn = false;
-        
-        public DLDualOutput()
-        {
-            PreRollFrames = 4;
-        }
+       
 
         public void ShowPreviewWindow(bool show)
         {

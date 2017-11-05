@@ -39,11 +39,6 @@ namespace DLKeyFillLib
         private PreviewWindow previewWindow = null;
         private bool previewOn = false;
         
-        public DLKeyFillOutput()
-        {
-            PreRollFrames = 4;
-        }
-
         public void ShowPreviewWindow(bool show)
         {
             if (show)
@@ -97,8 +92,7 @@ namespace DLKeyFillLib
         {
             // get the frame
             try {
-                if (DrawFrameGFXCallback != null)
-                    DrawFrameGFXCallback(_surfaceGFX);
+                DrawFrameGFXCallback?.Invoke(_surfaceGFX);
             }
             catch (InvalidOperationException ex) {
                 Trace.WriteLine("@@ DLKeyFillOutputWK_DrawFrame @@ " + ex.Message.ToString());

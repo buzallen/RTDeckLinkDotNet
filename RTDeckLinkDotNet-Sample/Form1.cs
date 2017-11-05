@@ -45,8 +45,11 @@ namespace RTDeckLinkDotNet_Sample
         public void Draw(Graphics g)
         {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            g.Clear(Color.Blue);
-            g.DrawString("Hello", font, Brushes.White, 100, 100);
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+
+            g.Clear(Color.Transparent);
+            g.DrawString("Hello", font, Brushes.Red, 100, 100);
+            g.FillRectangle(Brushes.Orange, 400, 400, 200, 150);
         }
 
     }
